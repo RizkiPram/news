@@ -21,6 +21,7 @@ import java.lang.IllegalArgumentException
 
 class MainViewModel(newsRepository: NewsRepository):ViewModel() {
     val getNews:LiveData<PagingData<ArticlesItem>> = newsRepository.getNews().cachedIn(viewModelScope)
+    val getHeadlineNews:LiveData<PagingData<ArticlesItem>> = newsRepository.getHeadlineNews().cachedIn(viewModelScope)
 //    private val _listAllNews=MutableLiveData<List<ArticlesItem>>()
 //    val listAllNews:MutableLiveData<List<ArticlesItem>> = _listAllNews
 //

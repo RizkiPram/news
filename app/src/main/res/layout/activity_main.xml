@@ -6,12 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvAllNews"
+        android:id="@+id/rvHeadlineNews"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        tools:listitem="@layout/item_headline"
+        tools:itemCount="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAllNews"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         tools:listitem="@layout/item_all_news"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvHeadlineNews"
         app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
