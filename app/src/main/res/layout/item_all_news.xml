@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardImgNewsAll"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgNewsAll"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/avatars" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvTittleNews"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/secondary_blue"
+        android:textStyle="bold"
+        android:maxLines="4"
+        android:ellipsize="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cardImgNewsAll"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="tittle news all" />
+
+    <ImageView
+        android:id="@+id/imgLabelWriter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/outline_person_outline_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tvTittleNews"
+        app:layout_constraintTop_toBottomOf="@id/tvTittleNews" />
+
+    <TextView
+        android:id="@+id/tvNewsWriter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="writer"
+        android:textColor="@color/text"
+        app:layout_constraintEnd_toStartOf="@id/imgLabelDate"
+        app:layout_constraintStart_toEndOf="@id/imgLabelWriter"
+        app:layout_constraintTop_toTopOf="@id/imgLabelWriter"
+        app:layout_constraintBottom_toBottomOf="@id/imgLabelWriter"/>
+    <ImageView
+        android:id="@+id/imgLabelDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/outline_calendar_month_24"
+        app:layout_constraintEnd_toStartOf="@id/tvDateNewsAll"
+        app:layout_constraintTop_toTopOf="@id/imgLabelWriter"
+        app:layout_constraintBottom_toBottomOf="@id/imgLabelWriter"
+        />
+    <TextView
+        android:id="@+id/tvDateNewsAll"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="10 Januari 2021"
+        app:layout_constraintBottom_toBottomOf="@id/imgLabelDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imgLabelDate"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
