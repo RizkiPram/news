@@ -8,17 +8,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.rakamin.databinding.ItemAllNewsBinding
 import com.example.rakamin.remote.response.ArticlesItem
+import java.text.SimpleDateFormat
 
 class AllNewsAdapter() : PagingDataAdapter<ArticlesItem,AllNewsAdapter.ViewHolder>(DIFF_CALLBACK) {
     inner class ViewHolder(private val binding:ItemAllNewsBinding) : RecyclerView.ViewHolder(binding.root){
         fun itemBind(data:ArticlesItem){
+            val parser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+            val formatter = SimpleDateFormat("dd-MMM-YYYY")
+            val publishedDate = formatter.format(parser.parse(data.publishedAt))
             binding.apply {
                 Glide.with(itemView)
                     .load(data.urlToImage)
                     .into(imgNewsAll)
                 tvTittleNews.text=data.title
                 tvNewsWriter.text=data.author
-                tvDateNewsAll.text=data.publishedAt
+                tvDateNewsAll.text=publishedDate
             }
         }
     }
