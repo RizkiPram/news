@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rakamin.adapter.AllNewsAdapter
 import com.example.rakamin.adapter.HeadlineNewsAdapter
+import com.example.rakamin.adapter.LoadingStateAdapter
 import com.example.rakamin.databinding.ActivityMainBinding
 import com.example.rakamin.viewmodel.MainViewModel
 
@@ -23,7 +24,9 @@ class MainActivity : AppCompatActivity() {
     private fun setAllNewsData() {
         binding.rvAllNews.apply {
             val newsAdapter = AllNewsAdapter()
-            adapter = newsAdapter
+            adapter = newsAdapter.withLoadStateFooter(
+                footer = LoadingStateAdapter{newsAdapter.retry()}
+            )
             layoutManager = LinearLayoutManager(this@MainActivity)
             viewModel.getNews.observe(this@MainActivity){
                 newsAdapter.submitData(lifecycle,it)
