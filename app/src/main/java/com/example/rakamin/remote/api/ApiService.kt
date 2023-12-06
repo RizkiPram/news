@@ -18,6 +18,4 @@ interface ApiService {
         @Query("pageSize") pageSize:Int,
         @Query("page") page:Int
     ) : NewsResponse
-
-
 }
